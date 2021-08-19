@@ -28,7 +28,7 @@ namespace TrainYolov4
         }
         private void ConfigWindow_Load(object sender, EventArgs e)
         {
-            this.CenterToScreen();
+            this.CenterToParent();
         }
         private void HoverOn(object sender, EventArgs e)
         {
@@ -63,7 +63,7 @@ namespace TrainYolov4
                 }
                 else
                 {
-                    MessageBox.Show("Width and Height must be divisible by 32 !", "Warning!");
+                    MessageBox.Show(this,"Width and Height must be divisible by 32 !", "Warning!");
                 }
             }
             else

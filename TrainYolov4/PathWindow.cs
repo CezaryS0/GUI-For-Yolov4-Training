@@ -58,7 +58,7 @@ namespace TrainYolov4
             InitializeComponent();
             InitValues();
             SetAnimation();
-            this.CenterToScreen();
+            this.CenterToParent();
         }
 
         private void PathToCfgButton_Click(object sender, EventArgs e)
