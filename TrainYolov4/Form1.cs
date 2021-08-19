@@ -175,6 +175,13 @@ namespace TrainYolov4
             this.ActiveControl = null;
         }
 
+        private void TrainingOutput_TextChanged(object sender, EventArgs e)
+        {
+            var control = sender as RichTextBox;
+            control.SelectionStart = control.Text.Length;
+            control.ScrollToCaret();
+        }
+
         private void TrainButton_Click(object sender, EventArgs e)
         {
             if (PathSet == true && CFGSet == true)

@@ -60,6 +60,7 @@ namespace TrainYolov4
             this.TrainingOutput.TabIndex = 4;
             this.TrainingOutput.TabStop = false;
             this.TrainingOutput.Text = "";
+            this.TrainingOutput.TextChanged += new System.EventHandler(this.TrainingOutput_TextChanged);
             // 
             // splitContainer
             // 
