@@ -50,8 +50,8 @@ The CFG file creation is based on "how to train" tutorial written on the github 
 You must of course compile the darknet file yourself, and select a path to it, in a ConfigWindow. <br>
 
 <h2>Output weights</h2>
-file ``yolo-obj_last.weights`` will be saved to your OutputPath for each 100 iterations<br>
-file ``yyolo-obj_xxxx.weights`` will be saved to your OutputPath for each 1000 iterations<br>
+file ``yolo-obj_last.weights`` will be saved to your OutputPath for each 100 iterations.<br>
+file ``yolo-obj_xxxx.weights`` will be saved to your OutputPath for each 1000 iterations.<br>
 
 <h2>GUI</h2>
 
