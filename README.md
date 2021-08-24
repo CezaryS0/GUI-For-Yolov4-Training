@@ -47,8 +47,11 @@ You must select a weights file that looks like this: ```yolov4.conv.137```
 All required files and Environment are described and can be downloaded at github page: https://github.com/AlexeyAB/darknet <br>
 The CFG file creation is based on "how to train" tutorial written on the github page above.<br><br>
 
-You must of course compile the darknet file yourself, and select a path to it, in a ConfigWindow <br>
+You must of course compile the darknet file yourself, and select a path to it, in a ConfigWindow. <br>
 
+<h2>Output weights</h2>
+file ``yolo-obj_last.weights`` will be saved to your OutputPath for each 100 iterations<br>
+file ``yyolo-obj_xxxx.weights`` will be saved to your OutputPath for each 1000 iterations<br>
 
 <h2>GUI</h2>
 
