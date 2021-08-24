@@ -8,23 +8,24 @@ namespace TrainYolov4
     {
         public static bool IsStillTraing = false;
         private static string _AvailableData;
-        private static bool IsAvalilable=false;
+        private static object Lock = new object();
         static Process myProcess;
+        private static ManualResetEvent mre = new ManualResetEvent(false);
         private static string AvailableData
         {
             get
             {
-                return _AvailableData;
+                    return _AvailableData;
             }
             set
             {
-                _AvailableData = value;
-                IsAvalilable = true;
+                    _AvailableData = value;
+                
             }
         }
         public static void TrainYolov4()
         {
-
+            FileEditor.CreateTrainFiles();
             IsStillTraing = true;
             myProcess = new Process();
             myProcess.StartInfo.UseShellExecute = false;
@@ -44,30 +45,49 @@ namespace TrainYolov4
         public static void EndProcess()
         {
             IsStillTraing = false;
+            mre.Set();
             if (myProcess != null)
             {
-                myProcess.Kill();
-                myProcess.Close();
+                if (!myProcess.HasExited)
+                {
+                    myProcess.Kill();
+                    myProcess.Close();
+                }
+                myProcess.Dispose();
+                myProcess = null;
             }
         }
         private static void ProcessEnded(object sender,EventArgs e)
         {
             IsStillTraing = false;
+            mre.Set();
             if (myProcess != null)
-                myProcess.Close();
+            {
+                if (!myProcess.HasExited)
+                    myProcess.Close();
+                myProcess.Dispose();
+                myProcess = null;
+            }
         }
         public static string ReceiveData()
         {
-            if(IsAvalilable)
+            string data = null;
+            mre.WaitOne();
+            lock (Lock)
             {
-                IsAvalilable = false;
-                return AvailableData;
+                mre.Reset();
+                data = AvailableData;
+                AvailableData = String.Empty;
             }
-            return String.Empty;
+            return data;
         }
         private static void process_OutputDataReceived(object sender, DataReceivedEventArgs e)
         {
-            AvailableData = e.Data;
+            lock (Lock)
+            {
+                AvailableData = e.Data;
+                mre.Set();
+            }
         }
     }
 }

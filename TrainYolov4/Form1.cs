@@ -6,10 +6,11 @@ namespace TrainYolov4
     public partial class Form1 : Form
     {
         private Thread thread, TrainThread;
-        private Semaphore A = new Semaphore(0, 1);
-        private Semaphore B = new Semaphore(0, 1);
+        ManualResetEvent A = new ManualResetEvent(false);
+        ManualResetEvent B = new ManualResetEvent(false);
         private bool PathSet = false;
         private bool CFGSet = false;
+        private bool OutputSet = false;
         public Form1()
         {
             InitializeComponent();
@@ -69,6 +70,7 @@ namespace TrainYolov4
             while (true)
             {
                 B.WaitOne();
+                B.Reset();
                 Train.TrainYolov4();
                 while (Train.IsStillTraing)
                 {
@@ -77,7 +79,7 @@ namespace TrainYolov4
                     {
                         if (TrainingOutput.InvokeRequired)
                         {
-                            TrainingOutput.BeginInvoke((MethodInvoker)delegate
+                            TrainingOutput.Invoke((MethodInvoker)delegate
                             {
                                 TrainingOutput.AppendText(Environment.NewLine + data);
                             }
@@ -97,9 +99,8 @@ namespace TrainYolov4
             while (true)
             {
                 A.WaitOne();
+                A.Reset();
                 FileEditor.GenerateFile();
-                FileEditor.GenerateObjData();
-                FileEditor.GenerateTrainTXT();
                 BlockAllButtons(this,true);
                 BlockStopButton(false);
                 MessageBox.Show("CFG file generated!", "Success!");
@@ -114,8 +115,6 @@ namespace TrainYolov4
                 {
                     PathSet = true;
                 }
-                else
-                    PathSet = false;
             }
             this.ActiveControl = null;
         }
@@ -128,8 +127,6 @@ namespace TrainYolov4
                 {
                     CFGSet = true;
                 }
-                else
-                    CFGSet = false;
             }
             this.ActiveControl = null;
         }
@@ -163,15 +160,18 @@ namespace TrainYolov4
 
         private void GenerateCFGButton_Click(object sender, EventArgs e)
         {
-            if (PathSet == true && CFGSet == true)
+            if(CFGSet==false)
             {
-                BlockAllButtons(this, false);
-                A.Release();
+                MessageBox.Show("Check your CFG config!", "Error!");
+                return;
             }
-            else
+            if(OutputSet==false)
             {
-                MessageBox.Show("Not all data has been set!", "Error!");
+                MessageBox.Show("No output path specified!", "Error!");
+                return;
             }
+            BlockAllButtons(this, false);
+            A.Set();
             this.ActiveControl = null;
         }
 
@@ -182,14 +182,36 @@ namespace TrainYolov4
             control.ScrollToCaret();
         }
 
+        private void ConfigureOutputButton_Click(object sender, EventArgs e)
+        {
+            using(var window = new OutputPathWindow())
+            {
+                if (window.ShowDialog() == DialogResult.OK)
+                {
+                    OutputSet = true;
+                }
+            }
+            this.ActiveControl = null;
+        }
+
         private void TrainButton_Click(object sender, EventArgs e)
         {
-            if (PathSet == true && CFGSet == true)
+            if(!PathSet)
             {
+                MessageBox.Show("Paths have not been configured!", "Error!");
+                return;
+            }
+            if(!OutputSet)
+            {
+                if (OutputSet == false)
+                {
+                    MessageBox.Show("No output path specified!", "Error!");
+                    return;
+                }
+            }
                 BlockAllButtons(this,false);
                 BlockStopButton(true);
-                B.Release();
-            }
+            B.Set();
             this.ActiveControl = null;
         }
     }

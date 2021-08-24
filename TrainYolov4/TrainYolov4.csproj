@@ -61,6 +61,12 @@
     <Compile Include="ConfigWindow.Designer.cs">
       <DependentUpon>ConfigWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="OutputPathWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OutputPathWindow.Designer.cs">
+      <DependentUpon>OutputPathWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="PathWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,6 +81,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ConfigWindow.resx">
       <DependentUpon>ConfigWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OutputPathWindow.resx">
+      <DependentUpon>OutputPathWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PathWindow.resx">
       <DependentUpon>PathWindow.cs</DependentUpon>

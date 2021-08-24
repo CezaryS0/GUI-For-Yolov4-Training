@@ -31,12 +31,14 @@ namespace TrainYolov4
         {
             this.TrainingOutput = new System.Windows.Forms.RichTextBox();
             this.splitContainer = new System.Windows.Forms.SplitContainer();
-            this.StopTrainingButton = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.ConfigurePathsButton = new System.Windows.Forms.Button();
             this.ConfigureCfgButton = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.TrainButton = new System.Windows.Forms.Button();
+            this.StopTrainingButton = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.ConfigureOutputButton = new System.Windows.Forms.Button();
             this.GenerateCFGButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
@@ -44,6 +46,7 @@ namespace TrainYolov4
             this.splitContainer.Panel2.SuspendLayout();
             this.splitContainer.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,7 +59,7 @@ namespace TrainYolov4
             this.TrainingOutput.Location = new System.Drawing.Point(0, 0);
             this.TrainingOutput.Name = "TrainingOutput";
             this.TrainingOutput.ReadOnly = true;
-            this.TrainingOutput.Size = new System.Drawing.Size(417, 384);
+            this.TrainingOutput.Size = new System.Drawing.Size(444, 399);
             this.TrainingOutput.TabIndex = 4;
             this.TrainingOutput.TabStop = false;
             this.TrainingOutput.Text = "";
@@ -66,15 +69,15 @@ namespace TrainYolov4
             // 
             this.splitContainer.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.splitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer.IsSplitterFixed = true;
             this.splitContainer.Location = new System.Drawing.Point(0, 0);
             this.splitContainer.Name = "splitContainer";
             // 
             // splitContainer.Panel1
             // 
             this.splitContainer.Panel1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.splitContainer.Panel1.Controls.Add(this.StopTrainingButton);
             this.splitContainer.Panel1.Controls.Add(this.panel2);
+            this.splitContainer.Panel1.Controls.Add(this.panel3);
+            this.splitContainer.Panel1.Controls.Add(this.StopTrainingButton);
             this.splitContainer.Panel1.Controls.Add(this.panel1);
             this.splitContainer.Panel1.Controls.Add(this.label1);
             this.splitContainer.Panel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
@@ -82,39 +85,18 @@ namespace TrainYolov4
             // splitContainer.Panel2
             // 
             this.splitContainer.Panel2.Controls.Add(this.TrainingOutput);
-            this.splitContainer.Size = new System.Drawing.Size(771, 384);
-            this.splitContainer.SplitterDistance = 350;
+            this.splitContainer.Size = new System.Drawing.Size(959, 399);
+            this.splitContainer.SplitterDistance = 511;
             this.splitContainer.TabIndex = 5;
             this.splitContainer.TabStop = false;
-            // 
-            // StopTrainingButton
-            // 
-            this.StopTrainingButton.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.StopTrainingButton.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.StopTrainingButton.Enabled = false;
-            this.StopTrainingButton.FlatAppearance.BorderSize = 0;
-            this.StopTrainingButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.StopTrainingButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.StopTrainingButton.Location = new System.Drawing.Point(0, 313);
-            this.StopTrainingButton.Margin = new System.Windows.Forms.Padding(0);
-            this.StopTrainingButton.Name = "StopTrainingButton";
-            this.StopTrainingButton.Size = new System.Drawing.Size(350, 71);
-            this.StopTrainingButton.TabIndex = 13;
-            this.StopTrainingButton.TabStop = false;
-            this.StopTrainingButton.Text = "StopTraining";
-            this.StopTrainingButton.UseVisualStyleBackColor = false;
-            this.StopTrainingButton.Click += new System.EventHandler(this.StopTrainingButton_Click);
-            this.StopTrainingButton.MouseEnter += new System.EventHandler(this.HoverOn);
-            this.StopTrainingButton.MouseLeave += new System.EventHandler(this.HoverOff);
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.ConfigurePathsButton);
             this.panel2.Controls.Add(this.ConfigureCfgButton);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 206);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(350, 100);
+            this.panel2.Size = new System.Drawing.Size(346, 100);
             this.panel2.TabIndex = 15;
             // 
             // ConfigurePathsButton
@@ -124,7 +106,7 @@ namespace TrainYolov4
             this.ConfigurePathsButton.FlatAppearance.BorderSize = 0;
             this.ConfigurePathsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ConfigurePathsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.ConfigurePathsButton.Location = new System.Drawing.Point(0, 0);
+            this.ConfigurePathsButton.Location = new System.Drawing.Point(173, 0);
             this.ConfigurePathsButton.Name = "ConfigurePathsButton";
             this.ConfigurePathsButton.Size = new System.Drawing.Size(173, 100);
             this.ConfigurePathsButton.TabIndex = 10;
@@ -138,11 +120,11 @@ namespace TrainYolov4
             // ConfigureCfgButton
             // 
             this.ConfigureCfgButton.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ConfigureCfgButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ConfigureCfgButton.Dock = System.Windows.Forms.DockStyle.Left;
             this.ConfigureCfgButton.FlatAppearance.BorderSize = 0;
             this.ConfigureCfgButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ConfigureCfgButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.ConfigureCfgButton.Location = new System.Drawing.Point(177, 0);
+            this.ConfigureCfgButton.Location = new System.Drawing.Point(0, 0);
             this.ConfigureCfgButton.Name = "ConfigureCfgButton";
             this.ConfigureCfgButton.Size = new System.Drawing.Size(173, 100);
             this.ConfigureCfgButton.TabIndex = 11;
@@ -153,27 +135,26 @@ namespace TrainYolov4
             this.ConfigureCfgButton.MouseEnter += new System.EventHandler(this.HoverOn);
             this.ConfigureCfgButton.MouseLeave += new System.EventHandler(this.HoverOff);
             // 
-            // panel1
+            // panel3
             // 
-            this.panel1.Controls.Add(this.TrainButton);
-            this.panel1.Controls.Add(this.GenerateCFGButton);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 106);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(350, 100);
-            this.panel1.TabIndex = 14;
+            this.panel3.Controls.Add(this.TrainButton);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel3.Location = new System.Drawing.Point(351, 106);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(160, 202);
+            this.panel3.TabIndex = 16;
             // 
             // TrainButton
             // 
             this.TrainButton.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.TrainButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.TrainButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TrainButton.Enabled = false;
             this.TrainButton.FlatAppearance.BorderSize = 0;
             this.TrainButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.TrainButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.TrainButton.Location = new System.Drawing.Point(0, 0);
             this.TrainButton.Name = "TrainButton";
-            this.TrainButton.Size = new System.Drawing.Size(173, 100);
+            this.TrainButton.Size = new System.Drawing.Size(160, 202);
             this.TrainButton.TabIndex = 9;
             this.TrainButton.TabStop = false;
             this.TrainButton.Text = "Train";
@@ -182,14 +163,61 @@ namespace TrainYolov4
             this.TrainButton.MouseEnter += new System.EventHandler(this.HoverOn);
             this.TrainButton.MouseLeave += new System.EventHandler(this.HoverOff);
             // 
+            // StopTrainingButton
+            // 
+            this.StopTrainingButton.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.StopTrainingButton.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.StopTrainingButton.Enabled = false;
+            this.StopTrainingButton.FlatAppearance.BorderSize = 0;
+            this.StopTrainingButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.StopTrainingButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.StopTrainingButton.Location = new System.Drawing.Point(0, 308);
+            this.StopTrainingButton.Margin = new System.Windows.Forms.Padding(0);
+            this.StopTrainingButton.Name = "StopTrainingButton";
+            this.StopTrainingButton.Size = new System.Drawing.Size(511, 91);
+            this.StopTrainingButton.TabIndex = 13;
+            this.StopTrainingButton.TabStop = false;
+            this.StopTrainingButton.Text = "StopTraining";
+            this.StopTrainingButton.UseVisualStyleBackColor = false;
+            this.StopTrainingButton.Click += new System.EventHandler(this.StopTrainingButton_Click);
+            this.StopTrainingButton.MouseEnter += new System.EventHandler(this.HoverOn);
+            this.StopTrainingButton.MouseLeave += new System.EventHandler(this.HoverOff);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.ConfigureOutputButton);
+            this.panel1.Controls.Add(this.GenerateCFGButton);
+            this.panel1.Location = new System.Drawing.Point(0, 106);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(349, 100);
+            this.panel1.TabIndex = 14;
+            // 
+            // ConfigureOutputButton
+            // 
+            this.ConfigureOutputButton.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.ConfigureOutputButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.ConfigureOutputButton.FlatAppearance.BorderSize = 0;
+            this.ConfigureOutputButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ConfigureOutputButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.ConfigureOutputButton.Location = new System.Drawing.Point(173, 0);
+            this.ConfigureOutputButton.Name = "ConfigureOutputButton";
+            this.ConfigureOutputButton.Size = new System.Drawing.Size(176, 100);
+            this.ConfigureOutputButton.TabIndex = 16;
+            this.ConfigureOutputButton.TabStop = false;
+            this.ConfigureOutputButton.Text = "Configure Output Path";
+            this.ConfigureOutputButton.UseVisualStyleBackColor = false;
+            this.ConfigureOutputButton.Click += new System.EventHandler(this.ConfigureOutputButton_Click);
+            this.ConfigureOutputButton.MouseEnter += new System.EventHandler(this.HoverOn);
+            this.ConfigureOutputButton.MouseLeave += new System.EventHandler(this.HoverOff);
+            // 
             // GenerateCFGButton
             // 
             this.GenerateCFGButton.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.GenerateCFGButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.GenerateCFGButton.Dock = System.Windows.Forms.DockStyle.Left;
             this.GenerateCFGButton.FlatAppearance.BorderSize = 0;
             this.GenerateCFGButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.GenerateCFGButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.GenerateCFGButton.Location = new System.Drawing.Point(177, 0);
+            this.GenerateCFGButton.Location = new System.Drawing.Point(0, 0);
             this.GenerateCFGButton.Name = "GenerateCFGButton";
             this.GenerateCFGButton.Size = new System.Drawing.Size(173, 100);
             this.GenerateCFGButton.TabIndex = 3;
@@ -208,7 +236,7 @@ namespace TrainYolov4
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(350, 106);
+            this.label1.Size = new System.Drawing.Size(511, 106);
             this.label1.TabIndex = 12;
             this.label1.Text = "Yolov4 Trainer";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -217,7 +245,7 @@ namespace TrainYolov4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(771, 384);
+            this.ClientSize = new System.Drawing.Size(959, 399);
             this.Controls.Add(this.splitContainer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -230,6 +258,7 @@ namespace TrainYolov4
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).EndInit();
             this.splitContainer.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -246,6 +275,8 @@ namespace TrainYolov4
         private System.Windows.Forms.Button GenerateCFGButton;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button ConfigureOutputButton;
+        private System.Windows.Forms.Panel panel3;
     }
 }
 

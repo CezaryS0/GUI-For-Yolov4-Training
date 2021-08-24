@@ -17,14 +17,15 @@ namespace TrainYolov4
         public static string TestTXT = "";
         public static string ObjData = "";
         public static string ObjNames = "";
-        public static string WeightsFilePath= "";
-        public static string backupPath= "";
-       
+        public static string WeightsFilePath= ""; 
     }
     public static class ConfigCFG
     {
-        public static int batch;
-        public static int subdivisions;
-        public static Size NetworkSize;
+        public static string batch;
+        public static string subdivisions;
+        public static string Width;
+        public static string Height;
+        public static string classes;
+        public static bool CalculateDuringGeneration=false;
     }
 }

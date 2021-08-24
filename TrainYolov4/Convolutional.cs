@@ -1,9 +1,4 @@
-﻿using System;
-using System.IO;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.IO;
 
 namespace TrainYolov4
 {
@@ -14,7 +9,7 @@ namespace TrainYolov4
         public string pad;
         public string filters;
         public string activation;
-        public void ReadConvolutional(StreamReader stringReader,string s)
+        public void ReadConvolutional(StreamReader stringReader, string s)
         {
             size = s;
             stride = stringReader.ReadLine();
