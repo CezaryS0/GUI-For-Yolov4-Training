@@ -49,18 +49,13 @@ The CFG file creation is based on "how to train" tutorial written on the github 
 
 You must of course compile the darknet file yourself, and select a path to it, in a ConfigWindow <br>
 
-<h2>Notice</h2>
-
-The CFG file creation and training can not be done separately for now, sorry for inconvenience!<br> 
 
 <h2>GUI</h2>
 
 The GUI looks like this:<br>
 
-![Animation](https://user-images.githubusercontent.com/56163226/130075110-6718fc61-076b-4408-b1a4-5f0c6ad7acc4.gif)
-
+![StartScreen](https://user-images.githubusercontent.com/56163226/130598384-e867290f-accb-43a9-af27-0a79d7ae3ec6.gif)
 
 The black screen void next to buttons is output from the darknet.exe file:<br>
 
-![Preview](https://user-images.githubusercontent.com/56163226/130075806-ffa9f468-74ac-4431-83b8-8eaf53f036b8.gif)
-
+![Preview](https://user-images.githubusercontent.com/56163226/130598416-db65613f-ef79-405b-b67f-34faa6387a5f.gif)
