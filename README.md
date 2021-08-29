@@ -35,9 +35,9 @@ Every line must be formatted like this:
 ```
   
 Where first number in line is a class id which is index of name it should be classified with.<br>
-Next two floating point numbers are x and y of rectangle's center!!! (not the top left corner!)<br>
+Next two floating point numbers are x and y of rectangle's center (not the top left corner!) relative to the width and height of the image!!! <br>
 Such rectangle must contain object to be recognized.<br>
-Finally third and fourth numbers are width and height of such rectangle.<br><br>
+Finally third and fourth numbers are width and height of such rectangle, again relative to the width and height of the image.<br><br>
 
 <h2>3. Yolo weights file</h2>
 
